@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "719466937248",
+    "firebase_url": "https://quit-f4d36-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "quit-f4d36",
+    "storage_bucket": "quit-f4d36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719466937248:android:f5a557b43c373078f502c5",
+        "android_client_info": {
+          "package_name": "com.example.quit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxGd8-G77Fj2ysYhwBidbHWPUJ3ZBTnCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

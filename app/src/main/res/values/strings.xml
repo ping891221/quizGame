@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">quit</string>
+    <string name="question">Question\nquestion</string>
+    <string name="option1">option1</string>
+    <string name="option2">option2</string>
+    <string name="option3">option3</string>
+    <string name="restart">Restart Quiz</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signup">SINGUP</string>
+    <string name="already_registered_login">Already registered? Login</string>
+    <string name="login">LOGIN</string>
+    <string name="not_yet_registered_signup">Not yet registered? SignUp</string>
+    <string name="AppIconSound">QuizAppIcon</string>
+    <string name="AppName">QuizApp</string>
+    <string name="Home">Home</string>
+    <string name="Badge">Badge</string>
+    <string name="Rank">Rank</string>
+    <string name="Profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="practicearea">PracticingArea</string>
+    <string name="competition">Competition</string>
+    <string name="user_name">User Name</string>
+    <string name="lv_99">Lv. </string>
+    <string name="heart">❤️</string>
+    <string name="money">💰</string>
+    <string name="account">Account</string>
+    <string name="loginText">Login</string>
+    <string name="sixnumber">密碼要有六碼</string>
+    <string name="wait">請稍等...</string>
+
+</resources>
