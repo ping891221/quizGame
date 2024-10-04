@@ -12,21 +12,24 @@
         android:supportsRtl="true"
         tools:targetApi="31">
         <activity
+            android:name=".BadgeListActivity"
+            android:exported="false" />
+        <activity
             android:name=".prac_question3"
             android:exported="false"
-            android:theme="@style/Theme.Quit.NoActionBar"/>
+            android:theme="@style/Theme.Quit.NoActionBar" />
         <activity
             android:name=".prac_question2"
             android:exported="false"
-            android:theme="@style/Theme.Quit.NoActionBar"/>
+            android:theme="@style/Theme.Quit.NoActionBar" />
         <activity
             android:name=".prac_level2"
             android:exported="false"
-            android:theme="@style/Theme.Quit.NoActionBar"/>
+            android:theme="@style/Theme.Quit.NoActionBar" />
         <activity
             android:name=".prac_level"
             android:exported="false"
-            android:theme="@style/Theme.Quit.NoActionBar"/>
+            android:theme="@style/Theme.Quit.NoActionBar" />
         <activity
             android:name=".prac_question"
             android:exported="false"
