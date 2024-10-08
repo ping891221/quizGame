@@ -29,5 +29,6 @@
     <string name="loginText">Login</string>
     <string name="sixnumber">密碼要有六碼</string>
     <string name="wait">請稍等...</string>
+    <string name="badge_page_title">可獲得獎章</string>
 
 </resources>

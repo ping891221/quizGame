@@ -4,9 +4,7 @@ public class badgeDomain {
     private Integer goldNumber;
     private Integer silverNumber;
     private Integer copperNumber;
-    private String goldImage;
-    private String silverImage;
-    private String copperImage;
+    private String title;
     private String describe;
 
     public Integer getGoldNumber() {
@@ -33,6 +31,14 @@ public class badgeDomain {
         this.copperNumber = copperNumber;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getDescribe() {
         return describe;
     }
@@ -41,39 +47,16 @@ public class badgeDomain {
         this.describe = describe;
     }
 
-    public String getGoldImage() {
-        return goldImage;
-    }
 
-    public void setGoldImage(String goldImage) {
-        this.goldImage = goldImage;
-    }
 
-    public String getSilverImage() {
-        return silverImage;
-    }
-
-    public void setSilverImage(String silverImage) {
-        this.silverImage = silverImage;
-    }
-
-    public String getCopperImage() {
-        return copperImage;
-    }
-
-    public void setCopperImage(String copperImage) {
-        this.copperImage = copperImage;
-    }
-
-    public badgeDomain(Integer goldNumber, Integer silverNumber, Integer copperNumber, String goldImage, String silverImage, String copperImage, String describe) {
+    public badgeDomain(Integer goldNumber, Integer silverNumber, Integer copperNumber, String title, String describe) {
         this.goldNumber = goldNumber;
         this.silverNumber = silverNumber;
         this.copperNumber = copperNumber;
-        this.goldImage = goldImage;
-        this.silverImage = silverImage;
-        this.copperImage = copperImage;
+        this.title = title;
         this.describe = describe;
     }
+
 
 
 }

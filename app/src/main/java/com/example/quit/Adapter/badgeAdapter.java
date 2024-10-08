@@ -38,14 +38,10 @@ public class badgeAdapter extends RecyclerView.Adapter<badgeAdapter.Viewholder> 
         holder.gold_number.setText(items.get(position).getGoldNumber());
         holder.silver_number.setText(items.get(position).getSilverNumber());
         holder.copper_number.setText(items.get(position).getCopperNumber());
+        holder.describe.setText(items.get(position).getTitle());
         holder.describe.setText(items.get(position).getDescribe());
 
-        int goldImageId = holder.itemView.getResources().getIdentifier(items.get(position).getGoldImage(),"drawable",holder.itemView.getContext().getPackageName());
-        Glide.with(context).load(goldImageId).into(holder.gold_image);
-        int silverImageId = holder.itemView.getResources().getIdentifier(items.get(position).getSilverImage(),"drawable",holder.itemView.getContext().getPackageName());
-        Glide.with(context).load(silverImageId).into(holder.silver_image);
-        int copperImageId = holder.itemView.getResources().getIdentifier(items.get(position).getCopperImage(),"drawable",holder.itemView.getContext().getPackageName());
-        Glide.with(context).load(copperImageId).into(holder.copper_image);
+
 
         holder.layout.setBackgroundResource(R.drawable.badge_background1);
     }
@@ -56,18 +52,16 @@ public class badgeAdapter extends RecyclerView.Adapter<badgeAdapter.Viewholder> 
     }
 
     public class Viewholder extends RecyclerView.ViewHolder{
-        TextView gold_number, silver_number, copper_number, describe;
-        ImageView gold_image,silver_image,copper_image;
+        TextView gold_number, silver_number, copper_number, title, describe;
         ConstraintLayout layout;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             gold_number = itemView.findViewById(R.id.gold_number_1);
             silver_number = itemView.findViewById(R.id.silver_number_1);
             copper_number = itemView.findViewById(R.id.copper_number_1);
+            title = itemView.findViewById(R.id.title);
             describe = itemView.findViewById(R.id.describe_1);
-            gold_image = itemView.findViewById(R.id.gold_1);
-            silver_image = itemView.findViewById(R.id.silver_1);
-            copper_image = itemView.findViewById(R.id.copper_1);
+
             layout = itemView.findViewById(R.id.badge_constraintlayout);
         }
     }
