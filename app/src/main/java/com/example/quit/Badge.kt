@@ -5,6 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.quit.Adapter.badgeAdapter
+import com.example.quit.Domain.badgeViewModel
+import com.example.quit.Domain.badgeDomain
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +27,10 @@ class Badge : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    /*private lateinit var adapterBadgeList: RecyclerView.Adapter<*>*/
+    private lateinit var adapterBadgeList: badgeAdapter
+    private lateinit var recyclerViewBadge: RecyclerView
+    private lateinit var viewModel: badgeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +45,34 @@ class Badge : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_badge, container, false)
+        val view = inflater.inflate(R.layout.fragment_badge, container, false)
+        /*initRecyclerView(view)*/
+        return view
     }
+
+    /*private fun initRecyclerView(view: View) {
+        val items = ArrayList<badgeDomain>()
+        items.add(badgeDomain("","","", "ABC", "aaaaabbbbbbbbbccccccccccdddddddd"))
+        items.add(badgeDomain("","","", "DEF", "deeeeeeeeeffffff"))
+        items.add(badgeDomain("","","", "GHI", "ggggghhhhhhhiiiiiii"))
+        items.add(badgeDomain("","","", "", ""))
+        items.add(badgeDomain("","","", "", ""))
+        items.add(badgeDomain("","","", "", ""))
+        items.add(badgeDomain("","","", "", ""))
+        items.add(badgeDomain("","","", "", ""))
+        items.add(badgeDomain("","","", "", ""))
+
+        /*FirebaseRecyclerOptions<badgeDomain> options =
+                new FirebaseRecyclerOptions.Builder<badgeDomain>()
+                    .setQuery(com.google.firebase.database.FirebaseDatabase.getInstance().getReference().child("Badges"),badgeDomain.class)
+                    .build();*/
+
+        recyclerViewBadge = view.findViewById(R.id.view)
+        recyclerViewBadge.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        adapterBadgeList = badgeAdapter(items)
+        recyclerViewBadge.adapter = adapterBadgeList
+    }*/
 
     companion object {
         /**
@@ -55,5 +92,21 @@ class Badge : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //引用視圖
+        recyclerViewBadge = view.findViewById(R.id.view)
+        recyclerViewBadge.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        recyclerViewBadge.setHasFixedSize(true)
+        adapterBadgeList = badgeAdapter()
+        recyclerViewBadge.adapter = adapterBadgeList
+        //創建物件
+        viewModel = ViewModelProvider(this).get(badgeViewModel::class.java)
+
+        viewModel.allBadges.observe(viewLifecycleOwner, Observer {
+            adapterBadgeList.updateBadgeList(it)
+        })
     }
 }

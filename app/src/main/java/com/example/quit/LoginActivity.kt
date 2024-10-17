@@ -58,7 +58,17 @@ class LoginActivity : AppCompatActivity() {
                                     finish()
                                 }else{
                                     //如果不存在，則初始化數值
-                                    val user = UserData(password,0,0,3)
+                                    val user = UserData(password,0,0,3,0,0,0,0,0,
+                                        0,0,0,0,0,0,0,0,0,0,0,0,
+                                        0,0,0,0,0,0,0,0,0,0,0,0,
+                                        0,0,0,0,0,0,0,0,0,0,0,
+                                        0,0,0,0,0,0,0,0,0,0,0,
+                                        0,0,0,0,0,0,0,0,0,0,0,
+                                        0,0,0,0,0,0,0,0,0,0,0,
+                                        0,0,0,0,0,0,0,0,0,0,0,
+                                        0,0,0,0,0,0,0,0,0,0,0,
+                                        0,0,0,0,0,0,0,0,0,0,0,0
+                                    )
                                     database.child(uid).setValue(user).addOnCompleteListener { dataTask ->
                                         if(dataTask.isSuccessful){
                                             hideProgressBar()
