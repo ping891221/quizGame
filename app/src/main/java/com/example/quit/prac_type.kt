@@ -16,10 +16,14 @@ class prac_type : AppCompatActivity() {
             finish()
         }
 
+        binding.topic1.setOnClickListener {
+            val intent = Intent(this, prac_level::class.java)
+            startActivity(intent)
+        }
+
         binding.topic2.setOnClickListener {
             val intent = Intent(this, prac_level2::class.java)
             startActivity(intent)
-
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.quit
+/*package com.example.quit
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -72,4 +72,4 @@ class DatabaseHelper (private val context: Context):
         return userExists
     }
 
-}
+}*/

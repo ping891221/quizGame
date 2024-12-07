@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/question_background3"
     tools:context=".prac_question3">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="100dp"
+        android:layout_width="600dp"
+        android:layout_height="900dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="50dp"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,43 +24,99 @@
             <LinearLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="130dp"
+                android:gravity="center"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/question_text"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/shop_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:backgroundTint="@color/shopbutton"
+                    android:id="@+id/shop"
+                    android:layout_width="150dp"
+                    android:layout_height="80dp"
+
+                    android:backgroundTint="@color/toolbutton"
                     android:drawableLeft="@drawable/shop"
-                    android:text="shop"
-                    android:textColor="#595858"
-                    android:textSize="25dp" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" /> <!-- 空間來擴展剩餘的區域 -->
-
+                    android:text="商店"
+                    android:textColor="#000000" />
 
                 <ImageButton
-                    android:id="@+id/level1"
-                    android:layout_width="200dp"
-                    android:layout_height="250dp"
-                    android:layout_marginEnd="30dp"
+                    android:id="@+id/voice"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:gravity="end"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/lock2" />
+                    app:srcCompat="@drawable/sound" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/context_tool"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+
+                            android:backgroundTint="@color/toolbutton"
+                            android:drawableLeft="@drawable/topic_context_small"
+                            android:text="題目內文"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/translation_tool"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/toolbutton"
+                            android:drawableLeft="@drawable/transltion_small"
+                            android:text="翻譯"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout> <!-- 空間來擴展剩餘的區域 -->
+
+
             </LinearLayout>
 
             <TextView
                 android:id="@+id/question_text"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="350dp"
+                android:gravity="center"
                 android:text="使用道具&quot;題目文本&quot;即可解鎖"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/optionLayout"
@@ -72,53 +127,51 @@
             <LinearLayout
                 android:id="@+id/optionLayout"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/question_text">
 
-                <LinearLayout
+                <android.widget.Button
+                    android:id="@+id/option1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/option_border1"
+                    android:text="" />
 
-                    <Button
-                        android:id="@+id/button6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Button" />
-
-                    <Button
-                        android:id="@+id/button7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Button" />
-                </LinearLayout>
-
-                <LinearLayout
+                <android.widget.Button
+                    android:id="@+id/option2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/option_border1"
+                    android:text="" />
 
-                    <Button
-                        android:id="@+id/button8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Button" />
+                <android.widget.Button
+                    android:id="@+id/option3"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/option_border1"
+                    android:text="" />
 
-                    <Button
-                        android:id="@+id/button9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Button" />
-                </LinearLayout>
+                <android.widget.Button
+                    android:id="@+id/option4"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/option_border1"
+                    android:text="" />
+
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

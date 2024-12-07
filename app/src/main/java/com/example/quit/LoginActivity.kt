@@ -1,5 +1,6 @@
 package com.example.quit
 
+import UserDataRepository
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,9 @@ import com.google.firebase.auth.FirebaseAuth
 import android.util.Log
 import android.app.Dialog
 import android.view.Window
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
 
 class LoginActivity : AppCompatActivity() {
@@ -50,6 +54,18 @@ class LoginActivity : AppCompatActivity() {
                             database = FirebaseDatabase.getInstance().getReference("Users")//有此節點的話便引用，沒有便創建
                             database.child(uid).get().addOnSuccessListener { dataSnapshot ->
                                 if(dataSnapshot.exists()){
+                                    database.child(uid).addValueEventListener(object:
+                                        ValueEventListener {
+                                        override fun onDataChange(snapshot: DataSnapshot) {
+                                            UserDataRepository.updateUserData(snapshot.getValue(UserData::class.java))
+                                        }
+
+                                        override fun onCancelled(error: DatabaseError) {
+                                            Toast.makeText(this@LoginActivity,"抓不到資料",Toast.LENGTH_SHORT).show()
+                                        }
+
+                                    })
+
                                     // 如果資料存在，跳轉到主頁面
                                     hideProgressBar()
                                     Toast.makeText(this,"成功登入'", Toast.LENGTH_SHORT).show()
@@ -58,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
                                     finish()
                                 }else{
                                     //如果不存在，則初始化數值
-                                    val user = UserData(password,0,0,3,0,0,0,0,0,
+                                    val user = UserData(password,"https://firebasestorage.googleapis.com/v0/b/quit-f4d36.appspot.com/o/sticker%2Finitial.png?alt=media&token=77ab52cd-0dac-4b49-980f-85b538cd091f",0,0,3,0,0,0,0,0,
                                         0,0,0,0,0,0,0,0,0,0,0,0,
                                         0,0,0,0,0,0,0,0,0,0,0,0,
                                         0,0,0,0,0,0,0,0,0,0,0,
@@ -71,6 +87,17 @@ class LoginActivity : AppCompatActivity() {
                                     )
                                     database.child(uid).setValue(user).addOnCompleteListener { dataTask ->
                                         if(dataTask.isSuccessful){
+                                            database.child(uid).addValueEventListener(object:
+                                                ValueEventListener {
+                                                override fun onDataChange(snapshot: DataSnapshot) {
+                                                    UserDataRepository.updateUserData(snapshot.getValue(UserData::class.java))
+                                                }
+
+                                                override fun onCancelled(error: DatabaseError) {
+                                                    Toast.makeText(this@LoginActivity,"抓不到資料",Toast.LENGTH_SHORT).show()
+                                                }
+
+                                            })
                                             hideProgressBar()
                                             Toast.makeText(this,"登入成功'", Toast.LENGTH_SHORT).show()
                                             val intent = Intent(this, MainActivity::class.java)
@@ -116,6 +143,8 @@ class LoginActivity : AppCompatActivity() {
     private fun hideProgressBar(){
         dialog.dismiss()
     }
+
+
 }
 
 

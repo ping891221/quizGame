@@ -85,7 +85,7 @@
                 android:src="@drawable/gold" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/goldNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -99,7 +99,7 @@
                 android:src="@drawable/silver" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/silverNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3"
@@ -113,7 +113,7 @@
                 android:src="@drawable/copper" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/copperNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"

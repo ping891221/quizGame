@@ -1,11 +1,13 @@
 package com.example.quit
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.quit.databinding.ActionBarBinding
 import com.example.quit.databinding.ActivityMainBinding
 import com.google.firebase.database.*
@@ -55,20 +57,37 @@ class MainActivity : AppCompatActivity() {
         uid = auth.currentUser?.uid.toString()
 
         database = FirebaseDatabase.getInstance().getReference("Users")
-        if(uid.isNotEmpty()){
-            getUserData()
+
+        UserDataRepository.userDataLiveData.observe(this) { userData ->
+            if (userData != null) {
+                Glide.with(this).load(UserDataRepository.userData?.sticker).into(actionBarBinding.barImage)
+                actionBarBinding.userName.setText(UserDataRepository.userData?.name)
+                actionBarBinding.heartCount.setText(String.format(UserDataRepository.userData?.heart.toString()))
+                actionBarBinding.levelNumber.setText(String.format(UserDataRepository.userData?.level.toString()))
+                actionBarBinding.moneyCount.setText(String.format(UserDataRepository.userData?.money.toString()))
+            } else {
+                Toast.makeText(this, "使用者資料載入失敗", Toast.LENGTH_SHORT).show()
+            }
         }
+        /*if(uid.isNotEmpty()){
+            getUserData()
+        }*/
 
     }
 
-    private fun getUserData(){
+    /*private fun getUserData(){
         database.child(uid).addValueEventListener(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                user = snapshot.getValue(UserData::class.java)!!
+                UserDataRepository.userData = snapshot.getValue(UserData::class.java)
+                actionBarBinding.userName.setText(UserDataRepository.userData?.name)
+                actionBarBinding.heartCount.setText(String.format(UserDataRepository.userData?.heart.toString()))
+                actionBarBinding.levelNumber.setText(String.format(UserDataRepository.userData?.level.toString()))
+                actionBarBinding.moneyCount.setText(String.format(UserDataRepository.userData?.money.toString()))
+                /*user = snapshot.getValue(UserData::class.java)!!
                 actionBarBinding.userName.setText(user.name)
                 actionBarBinding.heartCount.setText(String.format(user.heart.toString()))
                 actionBarBinding.levelNumber.setText(String.format(user.level.toString()))
-                actionBarBinding.moneyCount.setText(String.format(user.money.toString()))
+                actionBarBinding.moneyCount.setText(String.format(user.money.toString()))*/
 
             }
 
@@ -77,7 +96,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-    }
+    }*/
 
 
 

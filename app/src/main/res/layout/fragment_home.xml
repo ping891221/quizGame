@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/homebackground">
+       >
 
         <ScrollView
             android:layout_width="match_parent"
@@ -22,38 +22,40 @@
                 android:layout_marginEnd="20dp"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/linearLayout"
+                <ImageView
+                    android:id="@+id/home1"
                     android:layout_width="match_parent"
-                    android:layout_height="780dp"
-                    android:orientation="horizontal">
+                    android:layout_height="180dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/home1" />
 
-                    <ImageButton
-                        android:id="@+id/practice"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="208dp"
-                        android:background="@android:color/transparent"
-                        android:contentDescription="@string/practicearea"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/practicearea" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <ImageButton
+                    android:id="@+id/practice"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/practicearea"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/practicearea" />
 
-                    <ImageButton
-                        android:id="@+id/competition"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"
-                        android:contentDescription="@string/competition"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/competition" />
-                </LinearLayout>
+                <ImageView
+                    android:id="@+id/home2"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@android:color/transparent"
+
+                    app:srcCompat="@drawable/home2" />
+
+                <ImageButton
+                    android:id="@+id/competition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/competition"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/competition" />
+
             </LinearLayout>
         </ScrollView>
 

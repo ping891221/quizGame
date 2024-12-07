@@ -9,9 +9,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:hardwareAccelerated="true"
         android:supportsRtl="true"
         tools:targetApi="31">
-
+        <activity
+            android:name=".QuizResult"
+            android:exported="false" />
         <activity
             android:name=".prac_question3"
             android:exported="false"

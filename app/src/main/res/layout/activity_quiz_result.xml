@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#edeff5"
+    tools:context=".QuizResult">
+
+    <LinearLayout
+        android:layout_width="800dp"
+        android:layout_height="match_parent"
+        android:gravity="center|center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/win_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="110813060"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/win_image"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/initial"
+            app:civ_border_color="#595858"
+            app:civ_border_width="8dp" />
+
+        <TextView
+            android:id="@+id/score_compare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="50👑 vs 36"
+            android:textSize="50dp" />
+
+        <ImageView
+            android:id="@+id/win"
+            android:layout_width="500dp"
+            android:layout_height="300dp"
+            android:src="@drawable/competition_win" />
+
+        <ImageButton
+            android:id="@+id/play_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/transparent"
+
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/detail" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

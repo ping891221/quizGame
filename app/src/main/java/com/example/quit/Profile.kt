@@ -1,5 +1,6 @@
 package com.example.quit
 
+import UserDataRepository
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.StorageReference
+import com.bumptech.glide.Glide
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,20 +50,32 @@ class Profile : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-        auth = FirebaseAuth.getInstance()
+        UserDataRepository.userDataLiveData.observe(this) { userData ->
+            if (userData != null) {
+                Glide.with(this).load(UserDataRepository.userData?.sticker).into(binding.profileImage)
+                binding.profileName.setText(UserDataRepository.userData?.name)
+                binding.goldNumber.setText(UserDataRepository.userData?.bgGAll.toString())
+                binding.silverNumber.setText(UserDataRepository.userData?.bgSAll.toString())
+                binding.copperNumber.setText(UserDataRepository.userData?.bgCAll.toString())
+            } else {
+                Toast.makeText(requireContext(), "使用者資料載入失敗", Toast.LENGTH_SHORT).show()
+            }
+        }
+        /*auth = FirebaseAuth.getInstance()
         uid = auth.currentUser?.uid.toString()
 
-        database = FirebaseDatabase.getInstance().getReference("Users")
+
         if(uid.isNotEmpty()){
             getUserData()
-        }
+        }*/
     }
 
-    private fun getUserData(){
+    /*private fun getUserData(){
+        database = FirebaseDatabase.getInstance().getReference("Users")
         database.child(uid).addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 user = snapshot.getValue(UserData::class.java)!!
-                binding.profileName.setText(user.name)
+                binding.profileName.setText(UserDataRepository.userData?.name)
 
 
             }
@@ -71,7 +85,7 @@ class Profile : Fragment() {
             }
 
         })
-    }
+    }*/
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
