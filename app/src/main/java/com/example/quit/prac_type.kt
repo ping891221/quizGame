@@ -13,7 +13,8 @@ class prac_type : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.reButton.setOnClickListener {
-            finish()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         binding.topic1.setOnClickListener {

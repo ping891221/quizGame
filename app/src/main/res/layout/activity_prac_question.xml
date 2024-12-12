@@ -28,17 +28,55 @@
                 android:layout_height="130dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/photoTopic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                >
 
-                <Button
-                    android:id="@+id/shop"
-                    android:layout_width="120dp"
-                    android:layout_height="65dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    android:backgroundTint="@color/toolbutton"
-                    android:drawableLeft="@drawable/shop"
-                    android:text="商店"
-                    android:textColor="#000000" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/context_tool"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+
+                            android:backgroundTint="@color/toolbutton"
+                            android:drawableLeft="@drawable/topic_context_small"
+                            android:text="題目文字"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/context_tool_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/context_tool_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/toolbutton"
+                        android:text="查看提示"
+                        android:textColor="#000000" />
+
+                </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -74,40 +112,12 @@
                         android:orientation="horizontal">
 
                         <Button
-                            android:id="@+id/context_tool"
-                            android:layout_width="130dp"
-                            android:layout_height="wrap_content"
-
-                            android:backgroundTint="@color/toolbutton"
-                            android:drawableLeft="@drawable/topic_context_small"
-                            android:text="題目內文"
-                            android:textColor="#000000" />
-
-                        <TextView
-                            android:id="@+id/context_tool_number"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="1"
-                            android:textSize="30sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <Button
                             android:id="@+id/translation_tool"
                             android:layout_width="130dp"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/toolbutton"
                             android:drawableLeft="@drawable/transltion_small"
-                            android:text="翻譯"
+                            android:text="中文\t翻譯"
                             android:textColor="#000000" />
 
                         <TextView
@@ -122,6 +132,14 @@
                             android:textStyle="bold" />
                     </LinearLayout>
 
+                    <Button
+                        android:id="@+id/translation_tool_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/toolbutton"
+                        android:text="查看提示"
+                        android:textColor="#000000" />
+
                 </LinearLayout> <!-- 空間來擴展剩餘的區域 -->
 
 
@@ -130,7 +148,7 @@
             <ImageView
                 android:id="@+id/photoTopic"
                 android:layout_width="wrap_content"
-                android:layout_height="350dp"
+                android:layout_height="300dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="40dp"
@@ -152,46 +170,85 @@
                 android:layout_marginStart="80dp"
                 android:layout_marginEnd="80dp"
                 android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/photoTopic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
-                <android.widget.Button
-                    android:id="@+id/option1"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/option_border1"
-                    android:text="A" />
+                    android:orientation="horizontal">
 
-                <android.widget.Button
-                    android:id="@+id/option2"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/option_border1"
-                    android:text="B" />
+                    <android.widget.Button
+                        android:id="@+id/option1"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/option_border1"
+                        android:text="A" />
 
-                <android.widget.Button
-                    android:id="@+id/option3"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/option_border1"
-                    android:text="C" />
+                    <android.widget.Button
+                        android:id="@+id/option2"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/option_border1"
+                        android:text="B" />
+                </LinearLayout>
 
-                <android.widget.Button
-                    android:id="@+id/option4"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <android.widget.Button
+                        android:id="@+id/option3"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/option_border1"
+                        android:text="C" />
+
+                    <android.widget.Button
+                        android:id="@+id/option4"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/option_border1"
+                        android:text="D" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/checkAnswer"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/option_border1"
-                    android:text="D" />
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/confirm_answer1" />
 
             </LinearLayout>
+
+            <!--<Button
+                android:id="@+id/shop"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:backgroundTint="@color/toolbutton"
+                android:drawableLeft="@drawable/shop"
+                android:gravity="center"
+                android:textColor="#000000"
+                tools:layout_editor_absoluteY="154dp" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 

@@ -50,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
                     if(task.isSuccessful){
                         // 登入成功，取用當前使用者之uid
                         val uid = firebaseAuth.currentUser?.uid
+                        badgeStat.nowUserUid = uid
                         if (uid != null){
                             database = FirebaseDatabase.getInstance().getReference("Users")//有此節點的話便引用，沒有便創建
                             database.child(uid).get().addOnSuccessListener { dataSnapshot ->

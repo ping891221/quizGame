@@ -482,7 +482,7 @@ class GameActivity : AppCompatActivity() {
                 button.setOnClickListener{
                     mySelectAnswer = "option${index+1}"
                     putTimeData()
-                    binding.option1.setBackgroundColor(Color.parseColor("#304f00e3"))
+                    button.setBackgroundColor(Color.parseColor("#304f00e3"))
                     enableOptionButtons(false)
                 }
             }else{
@@ -563,7 +563,7 @@ class GameActivity : AppCompatActivity() {
             showResults()
         }*/
     }
-
+    //還少對方答案是否正確的UI
     private fun mycorrectButtonColors(buttonIndex: String?){
         when(buttonIndex){
             "option1" -> {
